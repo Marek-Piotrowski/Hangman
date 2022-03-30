@@ -15,7 +15,7 @@ StringBuilder userIncorrectLetters = new StringBuilder();
 
 Console.WriteLine("Welcome in Hangman game!.\n");
 Console.WriteLine(" // Game description //");
-Console.WriteLine("You have 10 chances to guess a secret word");
+Console.WriteLine("If you enter incorrect letter 10 times you lose.");
 Console.WriteLine("===========================================================\n");
 do
 {
