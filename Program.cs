@@ -2,6 +2,7 @@
 using System.Text;
 
 
+
 int userGuesses = 0;
 string[] secretWords = SecretWords();
 bool gameFlag = true;
@@ -15,6 +16,7 @@ StringBuilder userIncorrectLetters = new StringBuilder();
 
 Console.WriteLine("Welcome in Hangman game!.\n");
 Console.WriteLine(" // Game description //");
+Console.WriteLine("Guess a secret word by single letters or try to guess by a word.");
 Console.WriteLine("If you enter incorrect letter 10 times you lose.");
 Console.WriteLine("===========================================================\n");
 do
