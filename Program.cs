@@ -9,7 +9,9 @@ bool gameFlag = true;
 int userChoice;
 int userChoice2;
 string userGuess;
+int maxGuesses = 10;
 bool innerFlag = true;
+
 StringBuilder userIncorrectLetters = new StringBuilder();
 
 
@@ -69,6 +71,8 @@ void StartGame()
     int index = random.Next(secretWords.Length);
     string secret = secretWords[index];
 
+    
+
 
     char[] SecretToArray = secret.ToCharArray();
     // char array for users correct letters
@@ -84,7 +88,9 @@ void StartGame()
 
     do
     {
-        Console.WriteLine("You have guessed: " + userGuesses + " times incorecct.\nYou have only 10 chances before you lose.");
+        int chancesLeft = userChances(userGuesses, maxGuesses);
+
+        Console.WriteLine("You have : "+ chancesLeft +" chances left." );
         Console.WriteLine("Secret word is: ");
         Console.WriteLine(String.Join(" ", HiddenSecret));
         Console.WriteLine("\n");
@@ -94,7 +100,7 @@ void StartGame()
 
         try
         {
-
+            
             userChoice2 = int.Parse(Console.ReadLine());
 
 
@@ -128,7 +134,7 @@ void StartGame()
         };
 
 
-    } while (userGuesses <= 10 && innerFlag == true);
+    } while (userGuesses < 10 && innerFlag == true);
     Console.WriteLine("Secret word was : " + secret);
     Console.WriteLine("Game Over. Please reload the game.\n");
 }
@@ -227,6 +233,10 @@ string[] SecretWords()
 {
     string[] secretWords = { "Batman", "Superman", "Catwoman", "Spiderman", "Hugo", "Hulk", "Thor", "Frankenstein", "Transformer", "Deadpool" };
     return secretWords;
+}
+int userChances(int userChancesLeft, int maxGuesses)
+{
+    return maxGuesses - userChancesLeft;
 }
 
 
