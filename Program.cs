@@ -84,6 +84,7 @@ void StartGame()
 
     do
     {
+        Console.WriteLine("You have guessed: " + userGuesses + " times incorecct.\nYou have only 10 chances before you lose.");
         Console.WriteLine("Secret word is: ");
         Console.WriteLine(String.Join(" ", HiddenSecret));
         Console.WriteLine("\n");
@@ -128,6 +129,7 @@ void StartGame()
 
 
     } while (userGuesses <= 10 && innerFlag == true);
+    Console.WriteLine("Secret word was : " + secret);
     Console.WriteLine("Game Over. Please reload the game.\n");
 }
 
@@ -210,6 +212,7 @@ void TryGuess(string userWord, char[] SecretToArray,string secret,char[] HiddenS
             // when user word do not match the secret
             Console.WriteLine("Please keep guessing");
             userGuesses++;
+            
         }
     }
     else
