@@ -91,6 +91,7 @@ void StartGame()
         int chancesLeft = userChances(userGuesses, maxGuesses);
 
         Console.WriteLine("You have : "+ chancesLeft +" chances left." );
+        Console.WriteLine("Your incorrect letters are: " + userIncorrectLetters);
         Console.WriteLine("Secret word is: ");
         Console.WriteLine(String.Join(" ", HiddenSecret));
         Console.WriteLine("\n");
@@ -182,7 +183,7 @@ void TryGuess(string userWord, char[] SecretToArray,string secret,char[] HiddenS
             Console.WriteLine("Incorrect letter! ");
             userIncorrectLetters.AppendFormat("{0}, ", userWord);
             userGuesses++;
-            Console.WriteLine("Your incorrect letters are: "+ userIncorrectLetters);
+            
 
             // if user entered same letter before
             if (userLetters.Contains(userChar))
